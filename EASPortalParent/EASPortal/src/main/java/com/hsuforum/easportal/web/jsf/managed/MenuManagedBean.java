@@ -52,7 +52,7 @@ public class MenuManagedBean implements Serializable {
         String userId=(String)attributes.get("sAMAccountName");
 		//this.userId = JSFUtils.getHttpServletRequest().getRemoteUser();
         logger.info("login portal user id ="+userId);
-        this.setUserId(userId);
+        this.setUserId(userId.toUpperCase());
 	}
 
 
