@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2017/10/9 PM 05:10:37                        */
+/* Created on:     2017/10/10 ¤U¤È 04:09:23                       */
 /*==============================================================*/
 
 
@@ -28,7 +28,7 @@ drop table if exists TB_USERS_GROUPS;
 create table TB_CATEGORIES
 (
    ID                   varchar(36) not null comment 'ID',
-   CODE                 varchar(20) comment 'Code',
+   CODE                 varchar(20) not null comment 'Code',
    NAME                 varchar(50) comment 'Name',
    SEQUENCE             smallint comment 'Sort sequence',
    primary key (ID),
@@ -124,7 +124,7 @@ create table TB_SYSTEMS
 (
    ID                   varchar(36) not null comment 'ID',
    TB_CATEGORIES_ID     varchar(36) comment 'Categories''s ID',
-   CODE                 varchar(20) comment 'Code',
+   CODE                 varchar(20) not null comment 'Code',
    NAME                 varchar(50) comment 'Name',
    SEQUENCE             smallint comment 'Sort sequence',
    URL                  varchar(250) comment 'Url',
