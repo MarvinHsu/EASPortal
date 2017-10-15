@@ -7,7 +7,9 @@
 	<packaging>pom</packaging>
 	<modules>
 		<module>EASPortal</module>
+		<module>EASPortalJBossDB2</module>
 		<module>EASPortalJBossMySQL</module>
+		<module>EASPortalTomcatDB2</module>
 		<module>EASPortalTomcatMySQL</module>
 
 	</modules>
