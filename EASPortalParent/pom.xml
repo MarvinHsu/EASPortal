@@ -14,6 +14,7 @@
 		<module>EASPortalTomcatDB2</module>
 		<module>EASPortalTomcatMySQL</module>
 		<module>EASPortalTomcatOracle</module>
+		<module>EASPortalTomcatPostgreSQL</module>
 		<module>EASPortalTomcatSQLServer</module>
 
 	</modules>
