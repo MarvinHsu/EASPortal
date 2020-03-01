@@ -1,24 +1,97 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2017/10/10 ¤U¤È 04:09:23                       */
+/* Created on:     2020/3/1  02:41:33                           */
 /*==============================================================*/
 
 
+alter table TB_FUNCTIONS 
+   drop foreign key FK_TB_0004;
+
+alter table TB_FUNCTIONS 
+   drop foreign key FK_TB_0010;
+
+alter table TB_FUNCTIONS_ITEMS 
+   drop foreign key FK_TB_0002;
+
+alter table TB_GROUPS 
+   drop foreign key FK_TB_0011;
+
+alter table TB_GROUPS_FUNCTIONS 
+   drop foreign key FK_TB_0001;
+
+alter table TB_GROUPS_FUNCTIONS 
+   drop foreign key FK_TB_0003;
+
+alter table TB_GROUPS_FUNCTIONS 
+   drop foreign key FK_TB_0007;
+
+alter table TB_MODULES 
+   drop foreign key FK_TB_0009;
+
+alter table TB_SYSTEMS 
+   drop foreign key FK_TB_0008;
+
+alter table TB_USERS_GROUPS 
+   drop foreign key FK_TB_0005;
+
+alter table TB_USERS_GROUPS 
+   drop foreign key FK_TB_0006;
+
 drop table if exists TB_CATEGORIES;
+
+
+alter table TB_FUNCTIONS 
+   drop foreign key FK_TB_0004;
+
+alter table TB_FUNCTIONS 
+   drop foreign key FK_TB_0010;
 
 drop table if exists TB_FUNCTIONS;
 
+
+alter table TB_FUNCTIONS_ITEMS 
+   drop foreign key FK_TB_0002;
+
 drop table if exists TB_FUNCTIONS_ITEMS;
+
+
+alter table TB_GROUPS 
+   drop foreign key FK_TB_0011;
 
 drop table if exists TB_GROUPS;
 
+
+alter table TB_GROUPS_FUNCTIONS 
+   drop foreign key FK_TB_0003;
+
+alter table TB_GROUPS_FUNCTIONS 
+   drop foreign key FK_TB_0001;
+
+alter table TB_GROUPS_FUNCTIONS 
+   drop foreign key FK_TB_0007;
+
 drop table if exists TB_GROUPS_FUNCTIONS;
 
+
+alter table TB_MODULES 
+   drop foreign key FK_TB_0009;
+
 drop table if exists TB_MODULES;
+
+
+alter table TB_SYSTEMS 
+   drop foreign key FK_TB_0008;
 
 drop table if exists TB_SYSTEMS;
 
 drop table if exists TB_USERS;
+
+
+alter table TB_USERS_GROUPS 
+   drop foreign key FK_TB_0005;
+
+alter table TB_USERS_GROUPS 
+   drop foreign key FK_TB_0006;
 
 drop table if exists TB_USERS_GROUPS;
 
@@ -27,10 +100,10 @@ drop table if exists TB_USERS_GROUPS;
 /*==============================================================*/
 create table TB_CATEGORIES
 (
-   ID                   varchar(36) not null comment 'ID',
-   CODE                 varchar(20) not null comment 'Code',
-   NAME                 varchar(50) comment 'Name',
-   SEQUENCE             smallint comment 'Sort sequence',
+   ID                   varchar(36) not null  comment 'ID',
+   CODE                 varchar(20) not null  comment 'Code',
+   NAME                 varchar(50)  comment 'Name',
+   SEQUENCE             smallint  comment 'Sort sequence',
    primary key (ID),
    key TB_CATEGORIES_UK1 (CODE)
 );
@@ -42,15 +115,15 @@ alter table TB_CATEGORIES comment 'CATEGORIES Table';
 /*==============================================================*/
 create table TB_FUNCTIONS
 (
-   ID                   varchar(36) not null comment 'ID',
-   TB_SYSTEMS_ID        varchar(36) comment 'System''s ID',
-   TB_MODULES_ID        varchar(36) comment 'Module''s ID',
-   NAME                 varchar(40) not null comment 'Name',
-   OUTCOME              varchar(200) comment 'Outcome',
-   CREATE_DATE          datetime not null default CURRENT_TIMESTAMP comment 'System create date time',
-   UPDATE_DATE          datetime comment 'System update date time',
-   CODE                 varchar(40) not null comment 'Code',
-   SEQUENCE             smallint comment 'Sort sequence',
+   ID                   varchar(36) not null  comment 'ID',
+   TB_SYSTEMS_ID        varchar(36)  comment 'System''s ID',
+   TB_MODULES_ID        varchar(36)  comment 'Module''s ID',
+   NAME                 varchar(40) not null  comment 'Name',
+   OUTCOME              varchar(200)  comment 'Outcome',
+   CREATE_DATE          datetime not null default CURRENT_TIMESTAMP  comment 'System create date time',
+   UPDATE_DATE          datetime  comment 'System update date time',
+   CODE                 varchar(40) not null  comment 'Code',
+   SEQUENCE             smallint  comment 'Sort sequence',
    primary key (ID),
    key TBCL_FUNCTIONS_UK1 (NAME)
 );
@@ -62,11 +135,11 @@ alter table TB_FUNCTIONS comment 'Function table';
 /*==============================================================*/
 create table TB_FUNCTIONS_ITEMS
 (
-   ID                   varchar(36) not null comment 'ID',
-   TB_FUNCTIONS_ID      varchar(36) not null comment 'Function''s ID',
-   NAME                 varchar(50) not null comment 'Name',
-   CODE                 varchar(20) not null comment 'Code',
-   URL                  varchar(200) comment 'URL',
+   ID                   varchar(36) not null  comment 'ID',
+   TB_FUNCTIONS_ID      varchar(36) not null  comment 'Function''s ID',
+   NAME                 varchar(50) not null  comment 'Name',
+   CODE                 varchar(20) not null  comment 'Code',
+   URL                  varchar(200)  comment 'URL',
    primary key (ID)
 );
 
@@ -77,13 +150,13 @@ alter table TB_FUNCTIONS_ITEMS comment 'Function item table';
 /*==============================================================*/
 create table TB_GROUPS
 (
-   ID                   varchar(36) not null comment 'ID',
-   TB_SYSTEMS_ID        varchar(36) comment 'System''s ID',
-   NAME                 varchar(40) not null comment 'Name',
-   CODE                 varchar(20) not null comment 'Code',
-   ENABLED              numeric(1,0) not null default 1 comment 'Is enable',
-   CREATE_DATE          datetime not null default CURRENT_TIMESTAMP comment 'System crate data time',
-   UPDATE_DATE          datetime comment 'System update data time',
+   ID                   varchar(36) not null  comment 'ID',
+   TB_SYSTEMS_ID        varchar(36)  comment 'System''s ID',
+   NAME                 varchar(40) not null  comment 'Name',
+   CODE                 varchar(20) not null  comment 'Code',
+   ENABLED              numeric(1,0) not null default 1  comment 'Is enable',
+   CREATE_DATE          datetime not null default CURRENT_TIMESTAMP  comment 'System crate data time',
+   UPDATE_DATE          datetime  comment 'System update data time',
    primary key (ID)
 );
 
@@ -94,10 +167,12 @@ alter table TB_GROUPS comment 'Group table';
 /*==============================================================*/
 create table TB_GROUPS_FUNCTIONS
 (
-   TB_GROUPS_ID         varchar(36) not null comment 'Group''s ID',
-   TB_FUNCTIONS_ID      varchar(36) not null comment 'Function''s ID',
-   TB_FUNCTIONS_ITEMS_ID varchar(36) not null comment 'FunctionItem''s ID',
-   primary key (TB_GROUPS_ID, TB_FUNCTIONS_ID, TB_FUNCTIONS_ITEMS_ID)
+   ID                   varchar(36) not null  comment 'ID',
+   TB_GROUPS_ID         varchar(36) not null  comment 'Group''s ID',
+   TB_FUNCTIONS_ID      varchar(36) not null  comment 'Function''s ID',
+   TB_FUNCTIONS_ITEMS_ID varchar(36) not null  comment 'FunctionItem''s ID',
+   primary key (ID),
+   key TB_GROUPS_FUNCTIONS_UK1 (TB_GROUPS_ID, TB_FUNCTIONS_ID, TB_FUNCTIONS_ITEMS_ID)
 );
 
 alter table TB_GROUPS_FUNCTIONS comment 'Group, function and functionItem join table';
@@ -107,11 +182,11 @@ alter table TB_GROUPS_FUNCTIONS comment 'Group, function and functionItem join t
 /*==============================================================*/
 create table TB_MODULES
 (
-   ID                   varchar(36) not null comment 'ID',
-   TB_SYSTEMS_ID        varchar(36) comment 'System''s ID',
-   NAME                 varchar(50) not null comment 'Name',
-   CODE                 varchar(20) not null comment 'Code',
-   SEQUENCE             smallint comment 'Sort sequence',
+   ID                   varchar(36) not null  comment 'ID',
+   TB_SYSTEMS_ID        varchar(36)  comment 'System''s ID',
+   NAME                 varchar(50) not null  comment 'Name',
+   CODE                 varchar(20) not null  comment 'Code',
+   SEQUENCE             smallint  comment 'Sort sequence',
    primary key (ID)
 );
 
@@ -122,32 +197,32 @@ alter table TB_MODULES comment 'Module table';
 /*==============================================================*/
 create table TB_SYSTEMS
 (
-   ID                   varchar(36) not null comment 'ID',
-   TB_CATEGORIES_ID     varchar(36) comment 'Categories''s ID',
-   CODE                 varchar(20) not null comment 'Code',
-   NAME                 varchar(50) comment 'Name',
-   SEQUENCE             smallint comment 'Sort sequence',
-   URL                  varchar(250) comment 'Url',
-   OPEN_WINDOW          bit default 0 comment 'Open new windows',
+   ID                   varchar(36) not null  comment 'ID',
+   TB_CATEGORIES_ID     varchar(36)  comment 'Categories''s ID',
+   CODE                 varchar(20) not null  comment 'Code',
+   NAME                 varchar(50)  comment 'Name',
+   SEQUENCE             smallint  comment 'Sort sequence',
+   URL                  varchar(250)  comment 'Url',
+   OPEN_WINDOW          bit default 0  comment 'Open new windows',
    primary key (ID),
    key TB_SYSTEMS_UK1 (CODE)
 );
 
-alter table TB_SYSTEMS comment '¨t²Î¸ê®Æªí';
+alter table TB_SYSTEMS comment 'ç³»çµ±è³‡æ–™è¡¨';
 
 /*==============================================================*/
 /* Table: TB_USERS                                              */
 /*==============================================================*/
 create table TB_USERS
 (
-   ID                   varchar(36) not null comment 'ID',
-   NAME                 varchar(40) not null comment 'Name',
-   ACCOUNT              varchar(40) not null comment 'Account',
-   PASSWORD             varchar(255) comment 'Password',
-   ENABLED              numeric(1,0) not null default 1 comment 'Is enable',
-   EMAIL                varchar(40) not null comment 'EMAIL',
-   CREATE_DATE          datetime not null default CURRENT_TIMESTAMP comment 'System create data time',
-   UPDATE_DATE          datetime comment 'System update data time',
+   ID                   varchar(36) not null  comment 'ID',
+   NAME                 varchar(40) not null  comment 'Name',
+   ACCOUNT              varchar(40) not null  comment 'Account',
+   PASSWORD             varchar(255)  comment 'Password',
+   ENABLED              numeric(1,0) not null default 1  comment 'Is enable',
+   EMAIL                varchar(40) not null  comment 'EMAIL',
+   CREATE_DATE          datetime not null default CURRENT_TIMESTAMP  comment 'System create data time',
+   UPDATE_DATE          datetime  comment 'System update data time',
    primary key (ID),
    key TBCL_USERS_UK1 (ACCOUNT)
 );
@@ -159,8 +234,8 @@ alter table TB_USERS comment 'User Table';
 /*==============================================================*/
 create table TB_USERS_GROUPS
 (
-   TB_USERS_ID          varchar(36) not null comment 'User''s ID',
-   TB_GROUPS_ID         varchar(36) not null comment 'Group''s ID',
+   TB_USERS_ID          varchar(36) not null  comment 'User''s ID',
+   TB_GROUPS_ID         varchar(36) not null  comment 'Group''s ID',
    primary key (TB_USERS_ID, TB_GROUPS_ID)
 );
 

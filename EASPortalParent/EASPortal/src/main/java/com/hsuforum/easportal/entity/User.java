@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.LinkedHashSet;
-import java.util.Locale;
 import java.util.Set;
 
 import javax.persistence.Basic;
@@ -29,8 +28,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import com.hsuforum.common.entity.SystemDateOperation;
 import com.hsuforum.common.entity.impl.BaseEntityImpl;
 import com.hsuforum.common.entity.impl.SystemDateEntityListener;
-import com.hsuforum.common.web.jsf.utils.JSFUtils;
-import com.hsuforum.common.web.util.TranslationUtils;
 
 /**
  * The persistent class for the TBSSO_USERS database table.
@@ -225,20 +222,6 @@ public class User extends BaseEntityImpl<String> implements SystemDateOperation,
 
 	public void setCredentialsNonExpired(boolean credentialsNonExpired) {
 		this.credentialsNonExpired = credentialsNonExpired;
-	}
-
-	@Transient()
-	public String getDisplayName() throws NullPointerException {
-		Locale locale = JSFUtils.getRequestLocale();
-		if (locale.equals(Locale.SIMPLIFIED_CHINESE)) {
-			StringBuffer name = new StringBuffer(this.getName());
-			TranslationUtils.translate(name, "tradition2Simple");
-			return name.toString();
-
-		} else {
-			return this.getName();
-		}
-
 	}
 
 	@Override
