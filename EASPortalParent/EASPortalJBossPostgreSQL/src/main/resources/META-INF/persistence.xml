@@ -14,7 +14,6 @@
         <class>com.hsuforum.easportal.entity.Group</class>
         <class>com.hsuforum.easportal.entity.FunctionItem</class>
         <class>com.hsuforum.easportal.entity.GroupFunction</class>
-        <class>com.hsuforum.easportal.entity.GroupFunctionPK</class>
         <class>com.hsuforum.easportal.entity.Module</class>
         <class>com.hsuforum.easportal.entity.User</class>
         <class>com.hsuforum.easportal.entity.Category</class>

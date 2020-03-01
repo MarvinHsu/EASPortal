@@ -12,7 +12,7 @@ import com.hsuforum.easportal.dao.GroupFunctionDao;
 import com.hsuforum.easportal.entity.GroupFunction;
 
 @Repository("groupFunctionDao")
-public class GroupFunctionDaoImpl extends BaseDaoImpl<GroupFunction, com.hsuforum.easportal.entity.GroupFunctionPK>
+public class GroupFunctionDaoImpl extends BaseDaoImpl<GroupFunction, String>
 		implements GroupFunctionDao {
 
 	private static final long serialVersionUID = 5667386651417947800L;
