@@ -230,7 +230,7 @@
 		</dependencies>
 	</dependencyManagement>
 	<build>
-		<finalName>EAS</finalName>
+		<finalName>EASPortal</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
