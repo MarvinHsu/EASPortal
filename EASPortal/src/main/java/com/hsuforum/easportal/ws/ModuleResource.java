@@ -2,33 +2,30 @@ package com.hsuforum.easportal.ws;
 
 import java.util.List;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.hsuforum.easportal.entity.Module;
 import com.hsuforum.easportal.service.ModuleService;
 import com.hsuforum.easportal.web.config.WSConfigBean;
 import com.hsuforum.easportal.ws.vo.ModuleWSVO2;
 
-@Component
-@Path("moduleResource")
+@RestController
+@RequestMapping ("/rest/moduleResource")
 public class ModuleResource {
 	@Autowired
 	private WSConfigBean wsConfigBean;
 	@Autowired
 	private ModuleService moduleService;
 	
-	@GET
-	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public Response findBySystem(@QueryParam(value = "systemCode") String systemCode) {
+	@GetMapping
+	@ResponseBody
+	public ModuleWSVO2[] findBySystem(@RequestParam(value = "systemCode") String systemCode) {
 
 		
 
@@ -42,9 +39,9 @@ public class ModuleResource {
 				i++;
 				
 			}
-			return Response.ok().entity(moduleWSVO2s).build();
+			return moduleWSVO2s;
 		} else {
-			return Response.serverError().build();
+			return null;
 		}
 	}
 	

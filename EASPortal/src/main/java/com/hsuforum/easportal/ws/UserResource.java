@@ -1,32 +1,29 @@
 package com.hsuforum.easportal.ws;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.hsuforum.easportal.entity.User;
 import com.hsuforum.easportal.service.UserService;
 import com.hsuforum.easportal.web.config.WSConfigBean;
 import com.hsuforum.easportal.ws.vo.UserWSVO;
 
-@Component
-@Path("userResource")
+@RestController
+@RequestMapping("/rest/userResource")
 public class UserResource {
 	@Autowired
 	private WSConfigBean wsConfigBean;
 	@Autowired
 	private UserService userService;
 	
-	@GET
-	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public Response findBySystemUser(@QueryParam(value = "account") String account, @QueryParam(value = "systemCode") String systemCode) {
+	@GetMapping
+	@ResponseBody
+	public UserWSVO findBySystemUser(@RequestParam(value = "account") String account, @RequestParam(value = "systemCode") String systemCode) {
 
 		
 
@@ -35,9 +32,9 @@ public class UserResource {
 			UserWSVO userWSVO = new UserWSVO(user);
 			
 
-			return Response.ok().entity(userWSVO).build();
+			return userWSVO;
 		} else {
-			return Response.serverError().build();
+			return null;
 		}
 	}
 	
