@@ -10,6 +10,7 @@ import org.jasig.cas.client.boot.configuration.EnableCasClient;
 import org.springframework.aop.Advisor;
 import org.springframework.aop.aspectj.AspectJExpressionPointcut;
 import org.springframework.aop.support.DefaultPointcutAdvisor;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
@@ -28,7 +29,11 @@ import org.springframework.transaction.interceptor.TransactionInterceptor;
 		"classpath*:DBContext.xml" })
 public class ProjectConfiguration {
 	
-	
+	@Bean
+	@ConfigurationProperties(prefix = "project")
+	public DefaultSetting defaultSetting() {
+		return new DefaultSetting();
+	}
 	@Bean
 	public PlatformTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {
 		JpaTransactionManager transactionManager = new JpaTransactionManager();
