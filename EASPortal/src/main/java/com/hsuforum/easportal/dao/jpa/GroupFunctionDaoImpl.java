@@ -12,7 +12,6 @@ import org.springframework.stereotype.Repository;
 import com.hsuforum.common.dao.jpa.BaseDaoImpl;
 import com.hsuforum.easportal.dao.GroupFunctionDao;
 import com.hsuforum.easportal.entity.GroupFunction;
-import com.hsuforum.easportal.entity.Module;
 
 @Repository("groupFunctionDao")
 public class GroupFunctionDaoImpl extends BaseDaoImpl<GroupFunction, String>

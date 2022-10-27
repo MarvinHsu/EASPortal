@@ -3,8 +3,6 @@ package com.hsuforum.easportal.ws.vo;
 import java.io.Serializable;
 import java.util.Iterator;
 
-import javax.persistence.Transient;
-
 import com.hsuforum.easportal.entity.Group;
 import com.hsuforum.easportal.entity.GroupFunction;
 

@@ -9,8 +9,6 @@ import java.util.Iterator;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.hsuforum.easportal.ws.vo.GroupWSVO;
-import com.hsuforum.easportal.ws.vo.UserWSVO;
 import com.hsuforum.easportal.entity.Group;
 import com.hsuforum.easportal.entity.User;
 
