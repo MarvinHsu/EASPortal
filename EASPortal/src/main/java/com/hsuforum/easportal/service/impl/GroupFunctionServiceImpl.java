@@ -50,4 +50,11 @@ public class GroupFunctionServiceImpl
 		return this.getDao().findAllFetchRelation();
 	}
 
+
+	@Override
+	public List<GroupFunction> findBySystem(String systemCode) {
+
+		return this.getDao().findBySystem(systemCode);
+	}
+
 }

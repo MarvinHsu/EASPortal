@@ -9,5 +9,11 @@ public interface GroupFunctionService extends BaseService<GroupFunction, String>
 
 	
 	List<GroupFunction> findAllFetchRelation();
+	/**
+	 * find group functions by system code
+	 * @param systemCode
+	 * @return
+	 */
+	List<GroupFunction> findBySystem(String systemCode);
 
 }

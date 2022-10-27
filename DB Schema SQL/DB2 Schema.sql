@@ -1,6 +1,6 @@
 --==============================================================
 -- DBMS name:      IBM DB2 UDB 9.7 Common Server
--- Created on:     2020/3/1  06:08:39
+-- Created on:     2022/10/13 下午 06:14:08
 --==============================================================
 
 
@@ -97,6 +97,7 @@ create table TB_FUNCTIONS
    UPDATE_DATE          DATE,
    CODE                 VARCHAR(40)            not null,
    SEQUENCE             SMALLINT,
+   SHOWED               SMALLINT               default 1,
    constraint TBCL_FUNCTIONS_PK primary key (ID),
    constraint TBCL_FUNCTIONS_UK1 unique ("NAME")
 );
@@ -130,6 +131,9 @@ comment on column TB_FUNCTIONS.CODE is
 
 comment on column TB_FUNCTIONS.SEQUENCE is
 'Sort sequence';
+
+comment on column TB_FUNCTIONS.SHOWED is
+'Show in menu';
 
 --==============================================================
 -- Table: TB_FUNCTIONS_ITEMS
@@ -239,6 +243,7 @@ create table TB_MODULES
    "NAME"               VARCHAR(50)            not null,
    CODE                 VARCHAR(20)            not null,
    SEQUENCE             SMALLINT,
+   SHOWED               SMALLINT               default 1,
    constraint TB_MODULES_PK primary key (ID)
 );
 
@@ -260,6 +265,9 @@ comment on column TB_MODULES.CODE is
 comment on column TB_MODULES.SEQUENCE is
 'Sort sequence';
 
+comment on column TB_MODULES.SHOWED is
+'Show in menu';
+
 --==============================================================
 -- Table: TB_SYSTEMS
 --==============================================================
@@ -272,6 +280,7 @@ create table TB_SYSTEMS
    SEQUENCE             SMALLINT,
    URL                  VARCHAR(250),
    OPEN_WINDOW          SMALLINT               default 0,
+   SHOWED               SMALLINT               default 1,
    constraint TB_SYSTEMS_PK primary key (ID),
    constraint TB_SYSTEMS_UK1 unique (CODE)
 );
@@ -299,6 +308,9 @@ comment on column TB_SYSTEMS.URL is
 
 comment on column TB_SYSTEMS.OPEN_WINDOW is
 'Open new windows';
+
+comment on column TB_SYSTEMS.SHOWED is
+'Show in menu';
 
 --==============================================================
 -- Table: TB_USERS

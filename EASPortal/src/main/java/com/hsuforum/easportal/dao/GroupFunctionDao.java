@@ -9,5 +9,11 @@ public interface GroupFunctionDao extends BaseDao<GroupFunction, String> {
 
 	
 	List<GroupFunction> findAllFetchRelation();
-
+	/**
+	 * find group functions by system code
+	 * @param systemCode
+	 * @return
+	 */
+	List<GroupFunction> findBySystem(String systemCode);
+	
 }

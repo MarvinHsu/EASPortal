@@ -27,9 +27,11 @@
 						<c:forEach items="#{menuManagedBean.categories}" var="category">
 							<p:submenu label="#{category.name}" icon="ui-icon-folder-open">
 								<c:forEach items="#{category.systems}" var="system">
-									<p:menuitem value="#{system.name}" url="#{system.url}"
-										target="#{system.openWindow ? '_blank' : 'iFrameMain'}"
-										icon="ui-icon-link"/>
+									<c:if test="#{system.showed}">
+										<p:menuitem value="#{system.name}" url="#{system.url}"
+											target="#{system.openWindow ? '_blank' : 'iFrameMain'}"
+											icon="ui-icon-link"/>
+									</c:if>		
 								</c:forEach>
 							</p:submenu>
 						</c:forEach>
