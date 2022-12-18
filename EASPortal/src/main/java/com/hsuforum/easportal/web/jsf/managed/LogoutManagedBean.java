@@ -3,13 +3,13 @@ package com.hsuforum.easportal.web.jsf.managed;
 import java.io.IOException;
 import java.io.Serializable;
 
-import jakarta.faces.context.ExternalContext;
-import jakarta.faces.context.FacesContext;
-import jakarta.servlet.ServletException;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.SessionScope;
+
+import jakarta.faces.context.ExternalContext;
+import jakarta.faces.context.FacesContext;
+import jakarta.servlet.ServletException;
 /**
  * Logout managed bean
  * @author Marvin

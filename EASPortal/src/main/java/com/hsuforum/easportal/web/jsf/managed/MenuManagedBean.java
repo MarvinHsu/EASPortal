@@ -8,37 +8,28 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
-import jakarta.annotation.PostConstruct;
-import jakarta.faces.context.FacesContext;
-import jakarta.faces.event.ActionEvent;
-
 import org.apache.commons.collections4.CollectionUtils;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.apereo.cas.client.authentication.AttributePrincipal;
-import org.primefaces.component.accordionpanel.AccordionPanel;
-import org.primefaces.event.TabChangeEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.SessionScope;
 
-import com.hsuforum.common.web.jsf.utils.JSFUtils;
 import com.hsuforum.easportal.DefaultSetting;
-import com.hsuforum.easportal.security.util.AAUtils;
-
-
 import com.hsuforum.easportal.entity.Category;
 import com.hsuforum.easportal.entity.Function;
 import com.hsuforum.easportal.entity.Group;
 import com.hsuforum.easportal.entity.GroupFunction;
-import com.hsuforum.easportal.entity.User;
 import com.hsuforum.easportal.entity.Module;
+import com.hsuforum.easportal.entity.User;
+import com.hsuforum.easportal.security.util.AAUtils;
 import com.hsuforum.easportal.service.CategoryService;
 import com.hsuforum.easportal.service.ModuleService;
+
+import jakarta.annotation.PostConstruct;
+import jakarta.faces.context.FacesContext;
+import jakarta.faces.event.ActionEvent;
 
 
 
