@@ -14,7 +14,7 @@ import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Component;
-import org.springframework.web.context.annotation.SessionScope;
+import org.springframework.web.context.annotation.RequestScope;
 
 import com.hsuforum.easportal.DefaultSetting;
 import com.hsuforum.easportal.entity.Category;
@@ -40,7 +40,7 @@ import jakarta.faces.event.ActionEvent;
  *
  */
 @Component
-@SessionScope
+@RequestScope
 public class MenuManagedBean implements Serializable {
 	@Autowired
 	private DefaultSetting defaultSetting;
