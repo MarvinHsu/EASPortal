@@ -1,13 +1,8 @@
 package com.hsuforum.easportal.ws.vo;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Date;
 import java.util.Iterator;
-
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 
 import com.hsuforum.easportal.entity.Group;
 import com.hsuforum.easportal.entity.User;
@@ -16,7 +11,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
-public class UserWSVO implements Serializable,UserDetails{
+public class UserWSVO implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private String id;
 	private String account;
@@ -55,20 +50,7 @@ public class UserWSVO implements Serializable,UserDetails{
 			}
 		}
 	}
-	@Override
-	public Collection<? extends GrantedAuthority> getAuthorities() {
-		Collection<GrantedAuthority> arrayList = new ArrayList<GrantedAuthority>();
-		for (GroupWSVO groupWSVO : this.getGroupWSVOs()) {
-			GrantedAuthority ga = (GrantedAuthority) groupWSVO;
-			arrayList.add(ga);
-		}
 
-		return arrayList;
-	}
-	@Override
-	public String getUsername() {
-		return this.account;
-	}
 
 		
 }

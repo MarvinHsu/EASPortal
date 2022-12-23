@@ -4,14 +4,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-
 import org.springframework.stereotype.Repository;
 
 import com.hsuforum.common.dao.jpa.BaseDaoImpl;
 import com.hsuforum.easportal.dao.GroupFunctionDao;
 import com.hsuforum.easportal.entity.GroupFunction;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 
 @Repository("groupFunctionDao")
 public class GroupFunctionDaoImpl extends BaseDaoImpl<GroupFunction, String>
@@ -30,7 +30,7 @@ public class GroupFunctionDaoImpl extends BaseDaoImpl<GroupFunction, String>
 	}
 
 	/**
-	 * @see com.hsuforum.common.dao.jpa.BaseDaoImpl#setEntityManager(javax.persistence.EntityManager)
+	 * @see com.hsuforum.common.dao.jpa.BaseDaoImpl#setEntityManager(jakarta.persistence.EntityManager)
 	 */
 	@Override
 	public void setEntityManager(EntityManager entityManager) {

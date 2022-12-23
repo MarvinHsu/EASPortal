@@ -13,15 +13,14 @@ public class GroupWSVO2 implements Serializable {
 	private String id;
 	private String code;
 	private String name;
-	private String authority;
 
 	public GroupWSVO2(Group group) {
 		super();
 		this.setId(group.getId());
 		this.setCode(group.getCode());
 		this.setName(group.getName());
-		this.setAuthority(group.getAuthority());
 
 	}
+	
 
 }
