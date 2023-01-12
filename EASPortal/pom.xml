@@ -4,20 +4,20 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.hsuforum.EASPortal</groupId>
 	<artifactId>EASPortal</artifactId>
-	<version>3.0.0</version>
+	<version>3.0.1</version>
 	<packaging>jar</packaging>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.0.0</version>
+		<version>3.0.1</version>
 		<relativePath />
 	</parent>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<joinfaces.version>5.0.0</joinfaces.version>
-		<hsucommon.version>4.0.0</hsucommon.version>
+		<joinfaces.version>5.0.1</joinfaces.version>
+		<hsucommon.version>4.0.1</hsucommon.version>
 		<java.version>17</java.version>
-		<appRoot>/Application/EASPortal</appRoot>
+		<appRoot>/Users/weiche/Application/EASPortal</appRoot>
 		<systemUrl>https://localhost:8443</systemUrl>
 		<ssoUrl>https://localhost:9443/cas</ssoUrl>	
 	</properties>
@@ -532,7 +532,7 @@
 				<dependency>
 					<groupId>org.glassfish</groupId>
 					<artifactId>jakarta.el</artifactId>
-					<version>3.0.0</version>
+					<version>3.0.1</version>
 				</dependency>
 				<dependency>
 					<groupId>com.ibm.db2</groupId>
@@ -591,7 +591,7 @@
 				<dependency>
 					<groupId>org.glassfish</groupId>
 					<artifactId>jakarta.el</artifactId>
-					<version>3.0.0</version>
+					<version>3.0.1</version>
 				</dependency>
 				<dependency>
 					<groupId>mysql</groupId>
@@ -650,7 +650,7 @@
 				<dependency>
 					<groupId>org.glassfish</groupId>
 					<artifactId>jakarta.el</artifactId>
-					<version>3.0.0</version>
+					<version>3.0.1</version>
 				</dependency>
 				<dependency>
 					<groupId>com.oracle.jdbc</groupId>
@@ -710,7 +710,7 @@
 				<dependency>
 					<groupId>org.glassfish</groupId>
 					<artifactId>jakarta.el</artifactId>
-					<version>3.0.0</version>
+					<version>3.0.1</version>
 				</dependency>
 				<dependency>
 					<groupId>org.postgresql</groupId>
@@ -770,7 +770,7 @@
 				<dependency>
 					<groupId>org.glassfish</groupId>
 					<artifactId>jakarta.el</artifactId>
-					<version>3.0.0</version>
+					<version>3.0.1</version>
 				</dependency>
 				<dependency>
 					<groupId>com.microsoft.sqlserver</groupId>
