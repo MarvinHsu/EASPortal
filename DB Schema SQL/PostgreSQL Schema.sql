@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      PostgreSQL 9.x                               */
-/* Created on:     2022/10/13 下午 06:11:50                       */
+/* Created on:     2023/8/11 PM 06:50:47                        */
 /*==============================================================*/
 
 
@@ -54,8 +54,8 @@ comment on column TB_CATEGORIES.SEQUENCE is
 /*==============================================================*/
 create table TB_FUNCTIONS (
    ID                   VARCHAR(36)          not null,
-   TB_SYSTEMS_ID        VARCHAR(36)          null,
-   TB_MODULES_ID        VARCHAR(36)          null,
+   TB_SYSTEMS_ID        VARCHAR(36)          not null,
+   TB_MODULES_ID        VARCHAR(36)          not null,
    NAME                 VARCHAR(40)          not null,
    OUTCOME              VARCHAR(200)         null,
    CREATE_DATE          DATE                 not null default CURRENT_TIMESTAMP,
@@ -64,7 +64,7 @@ create table TB_FUNCTIONS (
    SEQUENCE             INT2                 null,
    SHOWED               INT2                 null default 1,
    constraint TBCL_FUNCTIONS_PK primary key (ID),
-   constraint TBCL_FUNCTIONS_UK1 unique (NAME)
+   constraint TBCL_FUNCTIONS_UK1 unique (TB_SYSTEMS_ID, CODE)
 );
 
 comment on table TB_FUNCTIONS is
