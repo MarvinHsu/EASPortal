@@ -1,6 +1,6 @@
 --==============================================================
 -- DBMS name:      IBM DB2 UDB 9.7 Common Server
--- Created on:     2022/10/13 下午 06:14:08
+-- Created on:     2023/8/11 PM 06:28:23
 --==============================================================
 
 
@@ -89,8 +89,8 @@ comment on column TB_CATEGORIES.SEQUENCE is
 create table TB_FUNCTIONS
 (
    ID                   VARCHAR(36)            not null,
-   TB_SYSTEMS_ID        VARCHAR(36),
-   TB_MODULES_ID        VARCHAR(36),
+   TB_SYSTEMS_ID        VARCHAR(36)            not null,
+   TB_MODULES_ID        VARCHAR(36)            not null,
    "NAME"               VARCHAR(40)            not null,
    OUTCOME              VARCHAR(200),
    CREATE_DATE          DATE                   not null default current date,
@@ -99,7 +99,7 @@ create table TB_FUNCTIONS
    SEQUENCE             SMALLINT,
    SHOWED               SMALLINT               default 1,
    constraint TBCL_FUNCTIONS_PK primary key (ID),
-   constraint TBCL_FUNCTIONS_UK1 unique ("NAME")
+   constraint TBCL_FUNCTIONS_UK1 unique (TB_SYSTEMS_ID, CODE)
 );
 
 comment on table TB_FUNCTIONS is
@@ -286,7 +286,7 @@ create table TB_SYSTEMS
 );
 
 comment on table TB_SYSTEMS is
-'系統資料表';
+'�t�θ�ƪ�';
 
 comment on column TB_SYSTEMS.ID is
 'ID';

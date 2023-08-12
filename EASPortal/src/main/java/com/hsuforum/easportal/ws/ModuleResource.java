@@ -12,14 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.hsuforum.easportal.entity.Module;
 import com.hsuforum.easportal.service.ModuleService;
-import com.hsuforum.easportal.web.config.WSConfigBean;
 import com.hsuforum.easportal.ws.vo.ModuleWSVO2;
 
 @RestController
 @RequestMapping ("/rest/moduleResource")
 public class ModuleResource {
-	@Autowired
-	private WSConfigBean wsConfigBean;
+
 	@Autowired
 	private ModuleService moduleService;
 	
@@ -45,15 +43,6 @@ public class ModuleResource {
 		}
 	}
 	
-	
-	
-	
-	public WSConfigBean getWsConfigBean() {
-		return wsConfigBean;
-	}
-	public void setWsConfigBean(WSConfigBean wsConfigBean) {
-		this.wsConfigBean = wsConfigBean;
-	}
 
 	public ModuleService getModuleService() {
 		return moduleService;

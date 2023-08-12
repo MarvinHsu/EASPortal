@@ -15,11 +15,6 @@
     <bean id="logoutUrl" class="java.lang.String">
 		<constructor-arg type="java.lang.String" value="@ssoUrl@/logout?service=@systemUrl@/EASPortal" />
 	</bean>
-    <bean id="wsConfigBean"
-    	class="com.hsuforum.easportal.web.config.WSConfigBean" 
-    	p:dataTableRows="25" p:mailFrom="abc@abc.com"
-    	scope="singleton" />
-	
 
     <bean class="com.hsuforum.easportal.exception.ExceptionHandler"></bean>
     <bean id="serviceLocator" class="com.hsuforum.common.service.util.ServiceLocator"/>
@@ -33,7 +28,7 @@
             </list>
         </property>
     </bean>
-    <!--  
+
     <bean id="facadeMonitoringAdvisor"
 		class="net.bull.javamelody.MonitoringSpringAdvisor">
 		<property name="pointcut">
@@ -54,5 +49,5 @@
 			</bean>
 		</property>
 	</bean>
-	-->
+
 </beans>

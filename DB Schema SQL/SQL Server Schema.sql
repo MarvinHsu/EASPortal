@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2012                    */
-/* Created on:     2022/10/13 下午 06:12:50                       */
+/* Created on:     2023/8/11 PM 06:51:56                        */
 /*==============================================================*/
 
 
@@ -255,8 +255,8 @@ go
 /*==============================================================*/
 create table TB_FUNCTIONS (
    ID                   varchar(36)          not null,
-   TB_SYSTEMS_ID        varchar(36)          null,
-   TB_MODULES_ID        varchar(36)          null,
+   TB_SYSTEMS_ID        varchar(36)          not null,
+   TB_MODULES_ID        varchar(36)          not null,
    NAME                 nvarchar(40)         not null,
    OUTCOME              varchar(200)         null,
    CREATE_DATE          datetime             not null default getdate(),
@@ -265,7 +265,7 @@ create table TB_FUNCTIONS (
    SEQUENCE             smallint             null,
    SHOWED               smallint             null default 1,
    constraint TBCL_FUNCTIONS_PK primary key nonclustered (ID),
-   constraint TBCL_FUNCTIONS_UK1 unique (NAME)
+   constraint TBCL_FUNCTIONS_UK1 unique (TB_SYSTEMS_ID, CODE)
 )
 go
 

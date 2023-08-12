@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      ORACLE Version 10gR2                         */
-/* Created on:     2022/10/13 下午 06:13:28                       */
+/* Created on:     2023/8/11 PM 06:49:44                        */
 /*==============================================================*/
 
 
@@ -87,8 +87,8 @@ comment on column TB_CATEGORIES.SEQUENCE is
 /*==============================================================*/
 create table TB_FUNCTIONS  (
    ID                   VARCHAR2(36)                    not null,
-   TB_SYSTEMS_ID        VARCHAR2(36),
-   TB_MODULES_ID        VARCHAR2(36),
+   TB_SYSTEMS_ID        VARCHAR2(36)                    not null,
+   TB_MODULES_ID        VARCHAR2(36)                    not null,
    NAME                 NVARCHAR2(40)                   not null,
    OUTCOME              VARCHAR2(200),
    CREATE_DATE          DATE                           default SYSDATE not null,
@@ -97,7 +97,7 @@ create table TB_FUNCTIONS  (
    SEQUENCE             SMALLINT,
    SHOWED               SMALLINT                       default 1,
    constraint TBCL_FUNCTIONS_PK primary key (ID),
-   constraint TBCL_FUNCTIONS_UK1 unique (NAME)
+   constraint TBCL_FUNCTIONS_UK1 unique (TB_SYSTEMS_ID, CODE)
 );
 
 comment on table TB_FUNCTIONS is

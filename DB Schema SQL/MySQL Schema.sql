@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2022/10/13 下午 06:10:53                       */
+/* Created on:     2023/8/11 PM 06:48:48                        */
 /*==============================================================*/
 
 
@@ -116,8 +116,8 @@ alter table TB_CATEGORIES comment 'CATEGORIES Table';
 create table TB_FUNCTIONS
 (
    ID                   varchar(36) not null  comment 'ID',
-   TB_SYSTEMS_ID        varchar(36)  comment 'System''s ID',
-   TB_MODULES_ID        varchar(36)  comment 'Module''s ID',
+   TB_SYSTEMS_ID        varchar(36) not null  comment 'System''s ID',
+   TB_MODULES_ID        varchar(36) not null  comment 'Module''s ID',
    NAME                 varchar(40) not null  comment 'Name',
    OUTCOME              varchar(200)  comment 'Outcome',
    CREATE_DATE          datetime not null default CURRENT_TIMESTAMP  comment 'System create date time',
@@ -126,7 +126,7 @@ create table TB_FUNCTIONS
    SEQUENCE             smallint  comment 'Sort sequence',
    SHOWED               smallint default 1  comment 'Show in menu',
    primary key (ID),
-   key TBCL_FUNCTIONS_UK1 (NAME)
+   key TBCL_FUNCTIONS_UK1 (TB_SYSTEMS_ID, CODE)
 );
 
 alter table TB_FUNCTIONS comment 'Function table';
