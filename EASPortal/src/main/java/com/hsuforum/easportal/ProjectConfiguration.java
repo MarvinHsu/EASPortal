@@ -54,6 +54,8 @@ import org.springframework.transaction.interceptor.RuleBasedTransactionAttribute
 import org.springframework.transaction.interceptor.TransactionAttribute;
 import org.springframework.transaction.interceptor.TransactionInterceptor;
 
+import com.hsuforum.common.service.util.ServiceLocator;
+import com.hsuforum.easportal.exception.ExceptionHandler;
 import com.hsuforum.easportal.security.intercept.web.JpaFilterInvocationDefinitionSource;
 import com.hsuforum.easportal.security.userdetails.JpaUserDetailsService;
 import com.hsuforum.easportal.security.vote.UserVoter;
@@ -73,7 +75,14 @@ public class ProjectConfiguration {
 	public DefaultSetting defaultSetting() {
 		return new DefaultSetting();
 	}
-
+	@Bean
+	ExceptionHandler exceptionHandler() {
+		return new ExceptionHandler();
+	}
+	@Bean
+	ServiceLocator serviceLocator() {
+		return new ServiceLocator();
+	}
 	@Bean
 	public TransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {
 		JpaTransactionManager transactionManager = new JpaTransactionManager();
