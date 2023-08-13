@@ -16,9 +16,6 @@
 		<constructor-arg type="java.lang.String" value="@ssoUrl@/logout?service=@systemUrl@/EASPortal" />
 	</bean>
 
-    <bean class="com.hsuforum.easportal.exception.ExceptionHandler"></bean>
-    <bean id="serviceLocator" class="com.hsuforum.common.service.util.ServiceLocator"/>
-    
     <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
         <property name="basenames">
             <list>
