@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2023/8/11 PM 06:48:48                        */
+/* Created on:     2023/8/15 PM 05:03:47                        */
 /*==============================================================*/
 
 
@@ -141,7 +141,8 @@ create table TB_FUNCTIONS_ITEMS
    NAME                 varchar(50) not null  comment 'Name',
    CODE                 varchar(20) not null  comment 'Code',
    URL                  varchar(200)  comment 'URL',
-   primary key (ID)
+   primary key (ID),
+   key TB_FUNCTIONS_ITEMS_UK1 (TB_FUNCTIONS_ID, CODE)
 );
 
 alter table TB_FUNCTIONS_ITEMS comment 'Function item table';
@@ -152,13 +153,14 @@ alter table TB_FUNCTIONS_ITEMS comment 'Function item table';
 create table TB_GROUPS
 (
    ID                   varchar(36) not null  comment 'ID',
-   TB_SYSTEMS_ID        varchar(36)  comment 'System''s ID',
+   TB_SYSTEMS_ID        varchar(36) not null  comment 'System''s ID',
    NAME                 varchar(40) not null  comment 'Name',
    CODE                 varchar(20) not null  comment 'Code',
    ENABLED              numeric(1,0) not null default 1  comment 'Is enable',
    CREATE_DATE          datetime not null default CURRENT_TIMESTAMP  comment 'System crate data time',
    UPDATE_DATE          datetime  comment 'System update data time',
-   primary key (ID)
+   primary key (ID),
+   key TB_GROUPS_UK1 (TB_SYSTEMS_ID, CODE)
 );
 
 alter table TB_GROUPS comment 'Group table';
@@ -184,12 +186,13 @@ alter table TB_GROUPS_FUNCTIONS comment 'Group, function and functionItem join t
 create table TB_MODULES
 (
    ID                   varchar(36) not null  comment 'ID',
-   TB_SYSTEMS_ID        varchar(36)  comment 'System''s ID',
+   TB_SYSTEMS_ID        varchar(36) not null  comment 'System''s ID',
    NAME                 varchar(50) not null  comment 'Name',
    CODE                 varchar(20) not null  comment 'Code',
    SEQUENCE             smallint  comment 'Sort sequence',
    SHOWED               smallint default 1  comment 'Show in menu',
-   primary key (ID)
+   primary key (ID),
+   key TB_MODULES_UK1 (TB_SYSTEMS_ID, CODE)
 );
 
 alter table TB_MODULES comment 'Module table';
@@ -211,7 +214,7 @@ create table TB_SYSTEMS
    key TB_SYSTEMS_UK1 (CODE)
 );
 
-alter table TB_SYSTEMS comment '系統資料表';
+alter table TB_SYSTEMS comment 'System table';
 
 /*==============================================================*/
 /* Table: TB_USERS                                              */
