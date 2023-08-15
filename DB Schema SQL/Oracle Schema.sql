@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      ORACLE Version 10gR2                         */
-/* Created on:     2023/8/11 PM 06:49:44                        */
+/* Created on:     2023/8/15 PM 05:02:07                        */
 /*==============================================================*/
 
 
@@ -142,7 +142,8 @@ create table TB_FUNCTIONS_ITEMS  (
    NAME                 NVARCHAR2(50)                   not null,
    CODE                 VARCHAR2(20)                    not null,
    URL                  VARCHAR2(200),
-   constraint TBCL_FUNCTIONS_ITEMS_PK primary key (ID)
+   constraint TBCL_FUNCTIONS_ITEMS_PK primary key (ID),
+   constraint TB_FUNCTIONS_ITEMS_UK1 unique (TB_FUNCTIONS_ID, CODE)
 );
 
 comment on table TB_FUNCTIONS_ITEMS is
@@ -168,13 +169,14 @@ comment on column TB_FUNCTIONS_ITEMS.URL is
 /*==============================================================*/
 create table TB_GROUPS  (
    ID                   VARCHAR2(36)                    not null,
-   TB_SYSTEMS_ID        VARCHAR2(36),
+   TB_SYSTEMS_ID        VARCHAR2(36)                    not null,
    NAME                 NVARCHAR2(40)                   not null,
    CODE                 VARCHAR2(20)                    not null,
    ENABLED              NUMBER(1,0)                    default 1 not null,
    CREATE_DATE          DATE                           default SYSDATE not null,
    UPDATE_DATE          DATE,
-   constraint TBCL_GROUPS_PK primary key (ID)
+   constraint TBCL_GROUPS_PK primary key (ID),
+   constraint TB_GROUPS_UK1 unique (TB_SYSTEMS_ID, CODE)
 );
 
 comment on table TB_GROUPS is
@@ -233,12 +235,13 @@ comment on column TB_GROUPS_FUNCTIONS.TB_FUNCTIONS_ITEMS_ID is
 /*==============================================================*/
 create table TB_MODULES  (
    ID                   VARCHAR2(36)                    not null,
-   TB_SYSTEMS_ID        VARCHAR2(36),
+   TB_SYSTEMS_ID        VARCHAR2(36)                    not null,
    NAME                 NVARCHAR2(50)                   not null,
    CODE                 VARCHAR2(20)                    not null,
    SEQUENCE             SMALLINT,
    SHOWED               SMALLINT                       default 1,
-   constraint TB_MODULES_PK primary key (ID)
+   constraint TB_MODULES_PK primary key (ID),
+   constraint AK_TB_MODULES_UK1_TB_MODUL unique (TB_SYSTEMS_ID, CODE)
 );
 
 comment on table TB_MODULES is
@@ -279,7 +282,7 @@ create table TB_SYSTEMS  (
 );
 
 comment on table TB_SYSTEMS is
-'系統資料表';
+'System table';
 
 comment on column TB_SYSTEMS.ID is
 'ID';

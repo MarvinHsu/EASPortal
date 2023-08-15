@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2012                    */
-/* Created on:     2023/8/11 PM 06:51:56                        */
+/* Created on:     2023/8/15 PM 05:02:39                        */
 /*==============================================================*/
 
 
@@ -485,7 +485,8 @@ create table TB_FUNCTIONS_ITEMS (
    NAME                 nvarchar(50)         not null,
    CODE                 varchar(20)          not null,
    URL                  varchar(200)         null,
-   constraint TBCL_FUNCTIONS_ITEMS_PK primary key nonclustered (ID)
+   constraint TBCL_FUNCTIONS_ITEMS_PK primary key nonclustered (ID),
+   constraint TB_FUNCTIONS_ITEMS_UK1 unique (TB_FUNCTIONS_ID, CODE)
 )
 go
 
@@ -606,13 +607,14 @@ go
 /*==============================================================*/
 create table TB_GROUPS (
    ID                   varchar(36)          not null,
-   TB_SYSTEMS_ID        varchar(36)          null,
+   TB_SYSTEMS_ID        varchar(36)          not null,
    NAME                 nvarchar(40)         not null,
    CODE                 varchar(20)          not null,
    ENABLED              numeric(1,0)         not null default 1,
    CREATE_DATE          datetime             not null default getdate(),
    UPDATE_DATE          datetime             null,
-   constraint TBCL_GROUPS_PK primary key nonclustered (ID)
+   constraint TBCL_GROUPS_PK primary key nonclustered (ID),
+   constraint TB_GROUPS_UK1 unique (TB_SYSTEMS_ID, CODE)
 )
 go
 
@@ -877,12 +879,13 @@ go
 /*==============================================================*/
 create table TB_MODULES (
    ID                   varchar(36)          not null,
-   TB_SYSTEMS_ID        varchar(36)          null,
+   TB_SYSTEMS_ID        varchar(36)          not null,
    NAME                 nvarchar(50)         not null,
    CODE                 varchar(20)          not null,
    SEQUENCE             smallint             null,
    SHOWED               smallint             null default 1,
-   constraint TB_MODULES_PK primary key nonclustered (ID)
+   constraint TB_MODULES_PK primary key nonclustered (ID),
+   constraint TB_MODULES_UK1 unique (TB_SYSTEMS_ID, CODE)
 )
 go
 
@@ -1047,7 +1050,7 @@ end
 
 select @CurrentUser = user_name() 
 execute sp_addextendedproperty 'MS_Description',  
-   '系統資料表', 
+   'System table', 
    'user', @CurrentUser, 'table', 'TB_SYSTEMS'
 go
 
