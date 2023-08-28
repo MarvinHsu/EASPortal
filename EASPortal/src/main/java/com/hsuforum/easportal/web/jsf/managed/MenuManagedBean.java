@@ -14,7 +14,7 @@ import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Component;
-import org.springframework.web.context.annotation.RequestScope;
+import org.springframework.web.context.annotation.SessionScope;
 
 import com.hsuforum.easportal.DefaultSetting;
 import com.hsuforum.easportal.entity.Category;
@@ -30,17 +30,19 @@ import com.hsuforum.easportal.service.ModuleService;
 import jakarta.annotation.PostConstruct;
 import jakarta.faces.context.FacesContext;
 import jakarta.faces.event.ActionEvent;
+import lombok.extern.slf4j.Slf4j;
 
 
 
 /**
- * 控制左邊功能列表的ManagedBean
+ * Navigation menu managed bean
  * 
  * @author marvin.wc.hsu
  *
  */
 @Component
-@RequestScope
+@SessionScope
+@Slf4j
 public class MenuManagedBean implements Serializable {
 	@Autowired
 	private DefaultSetting defaultSetting;
