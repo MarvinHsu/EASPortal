@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.hsuforum.EASPortal</groupId>
 	<artifactId>EASPortal</artifactId>
-	<version>3.2.1</version>
+	<version>3.2.2</version>
 	<packaging>jar</packaging>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -15,7 +15,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<joinfaces.version>5.3.3</joinfaces.version>
-		<hsucommon.version>4.2.1</hsucommon.version>
+		<hsucommon.version>4.2.2</hsucommon.version>
 		<java.version>17</java.version>
 		<appRoot>/Application/EASPortal</appRoot>
 		<systemUrl>https://localhost:8443</systemUrl>
@@ -473,9 +473,8 @@
 			</properties>
 			<dependencies>
 				<dependency>
-					<groupId>mysql</groupId>
-					<artifactId>mysql-connector-java</artifactId>
-					<version>8.0.32</version>
+					<groupId>com.mysql</groupId>
+					<artifactId>mysql-connector-j</artifactId>
 				</dependency>
 			</dependencies>
 		</profile>
