@@ -9,15 +9,17 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.3.4</version>
+		<version>3.3.5</version>
 		<relativePath />
 	</parent>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<joinfaces.version>5.3.4</joinfaces.version>
+		<joinfaces.version>5.3.5</joinfaces.version>
 		<hsucommon.version>4.2.2</hsucommon.version>
 		<java.version>17</java.version>
 		<appRoot>/Application/EASPortal</appRoot>
+		<spring.profiles.active>tomcat-mysql</spring.profiles.active>
+		<spring.profiles.active>tomcat-mysql</spring.profiles.active>
 		<systemUrl>https://localhost:8443</systemUrl>
 		<ssoUrl>https://localhost:9443/cas</ssoUrl>	
 	</properties>
