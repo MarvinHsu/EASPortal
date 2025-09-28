@@ -39,7 +39,8 @@
 
 						<f:facet name="options">
 							<h:panelGrid columns="3">
-								<p:linkButton href="#{logoutManagedBean.logoutUrl}"  value="#{resources.logout}"/>
+								<p:commandButton value="#{resources.logout}" action="#{logoutManagedBean.doLogoutAction}"/>
+								
 							</h:panelGrid>
 						</f:facet>
 					</p:menubar>
