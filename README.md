@@ -1,5 +1,5 @@
 # EASPortal
-Enterprise Application Stack Portal(EASPortal) is a Java 21 web application built on Spring Boot 4.1.0, JSF/PrimeFaces via JoinFaces, and Maven. The project is packaged as a JAR and uses Spring Security, Spring Data JPA, Quartz, and CAS-based authentication.
+Enterprise Application Stack Portal(EASPortal) is a Java 21 web application built on Spring Boot 4.1.0, JSF/PrimeFaces via JoinFaces, and Maven. The project is packaged as a JAR and uses Spring Security, Spring Data JPA, Quartz, and CAS-based authentication. The default account is admin/abcd12341!
 
 ## Current project facts
 
