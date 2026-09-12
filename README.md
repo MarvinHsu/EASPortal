@@ -1,11 +1,11 @@
 # EASPortal
-Enterprise Application Stack Portal(EASPortal) is a Java 21 web application built on Spring Boot 4.1.0, JSF/PrimeFaces via JoinFaces, and Maven. The project is packaged as a JAR and uses Spring Security, Spring Data JPA, Quartz, and CAS-based authentication.The product introduction link is [https://www.hsuforum.com/default.jsf?tabParam=easPortalTab](https://www.hsuforum.com/default.jsf?tabParam=easPortalTab "Go to The product introduction"). The default account is admin/abcd12341!
+Enterprise Application Stack Portal(EASPortal) is a Java 21 web application built on Spring Boot 4.1.1, JSF/PrimeFaces via JoinFaces, and Maven. The project is packaged as a JAR and uses Spring Security, Spring Data JPA, Quartz, and CAS-based authentication.The product introduction link is [https://www.hsuforum.com/default.jsf?tabParam=easPortalTab](https://www.hsuforum.com/default.jsf?tabParam=easPortalTab "Go to The product introduction"). The default account is admin/abcd12341!
 
 ## Current project facts
 
-- Java 21 and Spring Boot 4.1.0
-- JoinFaces 6.1.0 with PrimeFaces integration
-- HSUCommon 5.1.0 as an internal dependency
+- Java 21 and Spring Boot 4.1.1
+- JoinFaces 6.1.1 with PrimeFaces integration
+- HSUCommon 5.1.1 as an internal dependency
 - Database profiles: `tomcat-db2`, `tomcat-mysql`, `tomcat-oracle`, `tomcat-postgresql`, and `tomcat-sqlserver`
 - The default profile is `tomcat-mysql` in `pom.xml`
 - The build includes native2ascii resource conversion and AspectJ weaving
